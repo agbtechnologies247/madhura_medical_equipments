@@ -27,13 +27,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1.5rem;
+  flex-wrap: nowrap;
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 800;
   font-family: var(--font-heading);
   color: var(--foreground);
+  white-space: nowrap;
 }
 
 .mega-menu ul {
