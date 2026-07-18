@@ -5,26 +5,23 @@ import "./ProductShowcase.css";
 
 const products = [
   {
-    id: 1,
+    id: "airsense-11",
     name: "AirSense™ 11 AutoSet",
-    image: "CPAP Device",
-    price: "$980",
+    image: "/airsense_real.jpeg",
     rating: "4.9",
     specs: ["Auto-adjusting", "Heated Humidifier", "Bluetooth"]
   },
   {
-    id: 2,
+    id: "dreamstation-2",
     name: "DreamStation 2 Advanced",
-    image: "DreamStation Device",
-    price: "$850",
+    image: "/dreamstation_real.jpeg",
     rating: "4.8",
     specs: ["Color Touchscreen", "Ramp Plus", "Compact"]
   },
   {
-    id: 3,
+    id: "resmed-airmini",
     name: "ResMed AirMini",
-    image: "AirMini Device",
-    price: "$1,050",
+    image: "/airmini_real.webp",
     rating: "4.7",
     specs: ["Travel Friendly", "Waterless Humidification", "App Control"]
   }
@@ -41,29 +38,29 @@ export default function ProductShowcase() {
 
         <div className="products-grid">
           {products.map((product, index) => (
-            <motion.div 
+            <motion.div
               key={product.id}
-              className="premium-card product-card"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="product-image-container">
-                <div className="device-mock product-mock"></div>
-                <div className="product-rating">★ {product.rating}</div>
-              </div>
-              
-              <div className="product-info">
-                <h3>{product.name}</h3>
-                <div className="specs">
-                  {product.specs.map(spec => <span key={spec} className="spec-badge">{spec}</span>)}
+              <a href={`/products/${product.id}`} className="premium-card product-card" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
+                <div className="product-image-container">
+                  <img src={product.image} alt={product.name} style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '16px 16px 0 0' }} />
+                  <div className="product-rating">★ {product.rating}</div>
                 </div>
-                <div className="product-footer">
-                  <span className="price numbers">{product.price}</span>
-                  <button className="gradient-border-btn view-btn">View Details</button>
+
+                <div className="product-info">
+                  <h3>{product.name}</h3>
+                  <div className="specs">
+                    {product.specs.map(spec => <span key={spec} className="spec-badge">{spec}</span>)}
+                  </div>
+                  <div className="product-footer">
+                    <button className="gradient-border-btn view-btn">View Details</button>
+                  </div>
                 </div>
-              </div>
+              </a>
             </motion.div>
           ))}
         </div>

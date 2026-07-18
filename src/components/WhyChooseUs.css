@@ -62,9 +62,6 @@
   color: var(--color-primary);
 }
 
-[data-theme="dark"] .feature-card h3 {
-  color: var(--color-secondary);
-}
 
 .feature-card p {
   font-size: 0.95rem;
